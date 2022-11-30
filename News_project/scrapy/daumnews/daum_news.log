@@ -1,0 +1,1237 @@
+2022-11-30 16:16:45 [scrapy.utils.log] INFO: Scrapy 2.6.2 started (bot: daumnews)
+2022-11-30 16:16:45 [scrapy.utils.log] INFO: Versions: lxml 4.9.1.0, libxml2 2.9.14, cssselect 1.1.0, parsel 1.6.0, w3lib 1.21.0, Twisted 22.2.0, Python 3.9.12 (main, Apr  4 2022, 05:22:27) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 22.0.0 (OpenSSL 1.1.1s  1 Nov 2022), cryptography 38.0.1, Platform Windows-10-10.0.19044-SP0
+2022-11-30 16:16:45 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'daumnews',
+ 'DOWNLOAD_DELAY': 0.15,
+ 'FEED_EXPORT_ENCODING': 'utf-8-sig',
+ 'LOG_FILE': 'daum_news.log',
+ 'NEWSPIDER_MODULE': 'daumnews.spiders',
+ 'SPIDER_MODULES': ['daumnews.spiders']}
+2022-11-30 16:16:45 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2022-11-30 16:16:45 [scrapy.extensions.telnet] INFO: Telnet Password: 8018a914447c403f
+2022-11-30 16:16:45 [py.warnings] WARNING: C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py:289: ScrapyDeprecationWarning: The `FEED_URI` and `FEED_FORMAT` settings have been deprecated in favor of the `FEEDS` setting. Please see the `FEEDS` setting docs for more details
+  exporter = cls(crawler)
+
+2022-11-30 16:16:45 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2022-11-30 16:16:47 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2022-11-30 16:16:47 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2022-11-30 16:16:47 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2022-11-30 16:16:47 [scrapy.core.engine] INFO: Spider opened
+2022-11-30 16:16:48 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method FeedExporter.open_spider of <scrapy.extensions.feedexport.FeedExporter object at 0x000002028BE7B3A0>>
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 169, in maybeDeferred_coro
+    result = f(*args, **kw)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\pydispatch\robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py", line 337, in open_spider
+    self.slots.append(self._start_new_batch(
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py", line 394, in _start_new_batch
+    file = storage.open(spider)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py", line 148, in open
+    return open(self.path, self.write_mode)
+PermissionError: [Errno 13] Permission denied: 'daum_news.csv'
+2022-11-30 16:16:48 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2022-11-30 16:16:48 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2022-11-30 16:16:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=1> (referer: None)
+2022-11-30 16:16:48 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=1> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:16:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=2> (referer: None)
+2022-11-30 16:16:49 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=2> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:16:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=3> (referer: None)
+2022-11-30 16:16:49 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=3> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:16:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=4> (referer: None)
+2022-11-30 16:16:49 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=4> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:16:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=5> (referer: None)
+2022-11-30 16:16:49 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=5> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:16:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=6> (referer: None)
+2022-11-30 16:16:49 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=6> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:16:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=7> (referer: None)
+2022-11-30 16:16:49 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=7> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:16:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=8> (referer: None)
+2022-11-30 16:16:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=9> (referer: None)
+2022-11-30 16:16:50 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=8> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:16:50 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=9> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:16:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=10> (referer: None)
+2022-11-30 16:16:50 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=10> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:16:50 [scrapy.core.engine] INFO: Closing spider (finished)
+2022-11-30 16:16:50 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2441,
+ 'downloader/request_count': 10,
+ 'downloader/request_method_count/GET': 10,
+ 'downloader/response_bytes': 82152,
+ 'downloader/response_count': 10,
+ 'downloader/response_status_count/200': 10,
+ 'elapsed_time_seconds': 1.966404,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 11, 30, 7, 16, 50, 467104),
+ 'httpcompression/response_bytes': 406591,
+ 'httpcompression/response_count': 10,
+ 'log_count/DEBUG': 11,
+ 'log_count/ERROR': 11,
+ 'log_count/INFO': 10,
+ 'log_count/WARNING': 1,
+ 'response_received_count': 10,
+ 'scheduler/dequeued': 10,
+ 'scheduler/dequeued/memory': 10,
+ 'scheduler/enqueued': 10,
+ 'scheduler/enqueued/memory': 10,
+ 'spider_exceptions/TypeError': 10,
+ 'start_time': datetime.datetime(2022, 11, 30, 7, 16, 48, 500700)}
+2022-11-30 16:16:50 [scrapy.core.engine] INFO: Spider closed (finished)
+2022-11-30 16:18:02 [scrapy.utils.log] INFO: Scrapy 2.6.2 started (bot: daumnews)
+2022-11-30 16:18:02 [scrapy.utils.log] INFO: Versions: lxml 4.9.1.0, libxml2 2.9.14, cssselect 1.1.0, parsel 1.6.0, w3lib 1.21.0, Twisted 22.2.0, Python 3.9.12 (main, Apr  4 2022, 05:22:27) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 22.0.0 (OpenSSL 1.1.1s  1 Nov 2022), cryptography 38.0.1, Platform Windows-10-10.0.19044-SP0
+2022-11-30 16:18:02 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'daumnews',
+ 'DOWNLOAD_DELAY': 0.15,
+ 'FEED_EXPORT_ENCODING': 'utf-8-sig',
+ 'LOG_FILE': 'daum_news.log',
+ 'NEWSPIDER_MODULE': 'daumnews.spiders',
+ 'SPIDER_MODULES': ['daumnews.spiders']}
+2022-11-30 16:18:02 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2022-11-30 16:18:02 [scrapy.extensions.telnet] INFO: Telnet Password: f40b6b839e8d1037
+2022-11-30 16:18:02 [py.warnings] WARNING: C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py:289: ScrapyDeprecationWarning: The `FEED_URI` and `FEED_FORMAT` settings have been deprecated in favor of the `FEEDS` setting. Please see the `FEEDS` setting docs for more details
+  exporter = cls(crawler)
+
+2022-11-30 16:18:02 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2022-11-30 16:18:03 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2022-11-30 16:18:03 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2022-11-30 16:18:03 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2022-11-30 16:18:03 [scrapy.core.engine] INFO: Spider opened
+2022-11-30 16:18:03 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method FeedExporter.open_spider of <scrapy.extensions.feedexport.FeedExporter object at 0x000001E9E1F38EE0>>
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 169, in maybeDeferred_coro
+    result = f(*args, **kw)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\pydispatch\robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py", line 337, in open_spider
+    self.slots.append(self._start_new_batch(
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py", line 394, in _start_new_batch
+    file = storage.open(spider)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py", line 148, in open
+    return open(self.path, self.write_mode)
+PermissionError: [Errno 13] Permission denied: 'daum_news.csv'
+2022-11-30 16:18:03 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2022-11-30 16:18:03 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2022-11-30 16:18:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=1> (referer: None)
+2022-11-30 16:18:04 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=1> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:18:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=2> (referer: None)
+2022-11-30 16:18:04 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=2> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:18:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=3> (referer: None)
+2022-11-30 16:18:04 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=3> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:18:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=4> (referer: None)
+2022-11-30 16:18:04 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=4> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:18:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=5> (referer: None)
+2022-11-30 16:18:04 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=5> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:18:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=6> (referer: None)
+2022-11-30 16:18:05 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=6> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:18:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=7> (referer: None)
+2022-11-30 16:18:05 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=7> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:18:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=8> (referer: None)
+2022-11-30 16:18:05 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=8> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:18:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=9> (referer: None)
+2022-11-30 16:18:05 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=9> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:18:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=10> (referer: None)
+2022-11-30 16:18:05 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=10> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got list
+2022-11-30 16:18:05 [scrapy.core.engine] INFO: Closing spider (finished)
+2022-11-30 16:18:05 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2441,
+ 'downloader/request_count': 10,
+ 'downloader/request_method_count/GET': 10,
+ 'downloader/response_bytes': 82484,
+ 'downloader/response_count': 10,
+ 'downloader/response_status_count/200': 10,
+ 'elapsed_time_seconds': 1.983745,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2022, 11, 30, 7, 18, 5, 837980),
+ 'httpcompression/response_bytes': 409194,
+ 'httpcompression/response_count': 10,
+ 'log_count/DEBUG': 11,
+ 'log_count/ERROR': 11,
+ 'log_count/INFO': 10,
+ 'log_count/WARNING': 1,
+ 'response_received_count': 10,
+ 'scheduler/dequeued': 10,
+ 'scheduler/dequeued/memory': 10,
+ 'scheduler/enqueued': 10,
+ 'scheduler/enqueued/memory': 10,
+ 'spider_exceptions/TypeError': 10,
+ 'start_time': datetime.datetime(2022, 11, 30, 7, 18, 3, 854235)}
+2022-11-30 16:18:05 [scrapy.core.engine] INFO: Spider closed (finished)
+2022-11-30 16:21:35 [scrapy.utils.log] INFO: Scrapy 2.6.2 started (bot: daumnews)
+2022-11-30 16:21:35 [scrapy.utils.log] INFO: Versions: lxml 4.9.1.0, libxml2 2.9.14, cssselect 1.1.0, parsel 1.6.0, w3lib 1.21.0, Twisted 22.2.0, Python 3.9.12 (main, Apr  4 2022, 05:22:27) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 22.0.0 (OpenSSL 1.1.1s  1 Nov 2022), cryptography 38.0.1, Platform Windows-10-10.0.19044-SP0
+2022-11-30 16:21:35 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'daumnews',
+ 'DOWNLOAD_DELAY': 0.15,
+ 'FEED_EXPORT_ENCODING': 'utf-8-sig',
+ 'LOG_FILE': 'daum_news.log',
+ 'NEWSPIDER_MODULE': 'daumnews.spiders',
+ 'SPIDER_MODULES': ['daumnews.spiders']}
+2022-11-30 16:21:35 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2022-11-30 16:21:35 [scrapy.extensions.telnet] INFO: Telnet Password: e0bd4d49035775b1
+2022-11-30 16:21:35 [py.warnings] WARNING: C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py:289: ScrapyDeprecationWarning: The `FEED_URI` and `FEED_FORMAT` settings have been deprecated in favor of the `FEEDS` setting. Please see the `FEEDS` setting docs for more details
+  exporter = cls(crawler)
+
+2022-11-30 16:21:35 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats']
+2022-11-30 16:21:36 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2022-11-30 16:21:36 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2022-11-30 16:21:36 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2022-11-30 16:21:36 [scrapy.core.engine] INFO: Spider opened
+2022-11-30 16:21:37 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method FeedExporter.open_spider of <scrapy.extensions.feedexport.FeedExporter object at 0x0000028A2B8F1940>>
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 169, in maybeDeferred_coro
+    result = f(*args, **kw)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\pydispatch\robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py", line 337, in open_spider
+    self.slots.append(self._start_new_batch(
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py", line 394, in _start_new_batch
+    file = storage.open(spider)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\extensions\feedexport.py", line 148, in open
+    return open(self.path, self.write_mode)
+PermissionError: [Errno 13] Permission denied: 'daum_news.csv'
+2022-11-30 16:21:37 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2022-11-30 16:21:37 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2022-11-30 16:21:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=1> (referer: None)
+2022-11-30 16:21:37 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=1> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got NoneType
+2022-11-30 16:21:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=2> (referer: None)
+2022-11-30 16:21:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=3> (referer: None)
+2022-11-30 16:21:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130162124257> (referer: https://news.daum.net/breakingnews/society?page=1)
+2022-11-30 16:21:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130162111240> (referer: https://news.daum.net/breakingnews/society?page=1)
+2022-11-30 16:21:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130162124257>
+{'Date': ['2022. 11. 30. 16:21'],
+ 'Title': "검찰, 서해 피격 윗선 수사..서훈 영장 발부 여부 '성패'",
+ 'Writer': ['유선준']}
+2022-11-30 16:21:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130162111240>
+{'Date': ['2022. 11. 30. 16:21'], 'Title': '속초시 제설대책 모의훈련', 'Writer': ['이종건']}
+2022-11-30 16:21:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=5> (referer: None)
+2022-11-30 16:21:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=4> (referer: None)
+2022-11-30 16:21:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130162113244> (referer: https://news.daum.net/breakingnews/society?page=1)
+2022-11-30 16:21:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130162113244>
+{'Date': ['2022. 11. 30. 16:21'],
+ 'Title': '`삥술`로 바가지 씌우고 취객 방치해 숨지게 한 50대…징역 3년',
+ 'Writer': ['김광태']}
+2022-11-30 16:21:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130162114246> (referer: https://news.daum.net/breakingnews/society?page=1)
+2022-11-30 16:21:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=6> (referer: None)
+2022-11-30 16:21:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130162118250> (referer: https://news.daum.net/breakingnews/society?page=1)
+2022-11-30 16:21:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130162114246>
+{'Date': ['2022. 11. 30. 16:21'], 'Title': '속초시 제설대책 모의훈련', 'Writer': ['이종건']}
+2022-11-30 16:21:38 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET https://v.daum.net/v/20221130161652033> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2022-11-30 16:21:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130162102226> (referer: https://news.daum.net/breakingnews/society?page=1)
+2022-11-30 16:21:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=7> (referer: None)
+2022-11-30 16:21:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130162118250>
+{'Date': ['2022. 11. 30. 16:21'], 'Title': '속초시 제설대책 모의훈련', 'Writer': ['이종건']}
+2022-11-30 16:21:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130162102226>
+{'Date': ['2022. 11. 30. 16:21'],
+ 'Title': '공작기계에 끼여 근로자 사망…안전관리 소홀 업체 대표 ‘집행유예’',
+ 'Writer': ['김성영 영남본부 기자']}
+2022-11-30 16:21:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=8> (referer: None)
+2022-11-30 16:21:38 [scrapy.core.scraper] ERROR: Spider error processing <GET https://news.daum.net/breakingnews/society?page=7> (referer: None)
+Traceback (most recent call last):
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\defer.py", line 132, in iter_errback
+    yield next(it)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\utils\python.py", line 354, in __next__
+    return next(self.data)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 342, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 40, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\core\spidermw.py", line 66, in _evaluate_iterable
+    for r in iterable:
+  File "C:\Users\bin\Desktop\workspace\sesac_studyfile\실습프로젝트\3.뉴스추천시스템\daumnews\daumnews\spiders\daumnews.py", line 24, in news_url
+    yield scrapy.Request(url=newsurl, callback=self.parse)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 60, in __init__
+    self._set_url(url)
+  File "C:\Users\bin\anaconda3\envs\news\lib\site-packages\scrapy\http\request\__init__.py", line 98, in _set_url
+    raise TypeError(f"Request url must be str, got {type(url).__name__}")
+TypeError: Request url must be str, got NoneType
+2022-11-30 16:21:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130162104230> (referer: https://news.daum.net/breakingnews/society?page=1)
+2022-11-30 16:21:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130162104230>
+{'Date': ['2022. 11. 30. 16:21'],
+ 'Title': '국립중앙의료원, 남원의료원에 의사인력 지원',
+ 'Writer': ['전북CBS 최명국 기자']}
+2022-11-30 16:21:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=9> (referer: None)
+2022-11-30 16:21:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130162059222> (referer: https://news.daum.net/breakingnews/society?page=1)
+2022-11-30 16:21:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.daum.net/breakingnews/society?page=10> (referer: None)
+2022-11-30 16:21:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130162059222>
+{'Date': ['2022. 11. 30. 16:20'],
+ 'Title': '사체검안서 받기까지 14시간…장례 치르며 또 한 번 고통당한 유가족[이태원 참사 한 달]',
+ 'Writer': ['윤기은 기자']}
+2022-11-30 16:21:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161940167> (referer: https://news.daum.net/breakingnews/society?page=2)
+2022-11-30 16:21:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161940167>
+{'Date': ['2022. 11. 30. 16:19'], 'Title': '[모멘트] 돌 위 맺힌 얼음', 'Writer': ['이진욱']}
+2022-11-30 16:21:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161936165> (referer: https://news.daum.net/breakingnews/society?page=3)
+2022-11-30 16:21:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161943168> (referer: https://news.daum.net/breakingnews/society?page=2)
+2022-11-30 16:21:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161936165>
+{'Date': ['2022. 11. 30. 16:19'],
+ 'Title': "[모멘트] 현대차, 오늘도 '로드 탁송'",
+ 'Writer': ['이진욱']}
+2022-11-30 16:21:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161943168>
+{'Date': ['2022. 11. 30. 16:19'],
+ 'Title': '[모멘트] 연탄과 함께 전하는 온정',
+ 'Writer': ['이진욱']}
+2022-11-30 16:21:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161839127> (referer: https://news.daum.net/breakingnews/society?page=3)
+2022-11-30 16:21:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161841128> (referer: https://news.daum.net/breakingnews/society?page=3)
+2022-11-30 16:21:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161839127>
+{'Date': ['2022. 11. 30. 16:18'],
+ 'Title': '[이태원 참사 한 달]"내가 현장에 있었더라면…"고요한 골목 지키는 사람들',
+ 'Writer': ['주원규']}
+2022-11-30 16:21:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161841128>
+{'Date': ['2022. 11. 30. 16:18'],
+ 'Title': '[모멘트] 강릉 찾은 겨울진객 큰고니',
+ 'Writer': ['이진욱']}
+2022-11-30 16:21:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161844129> (referer: https://news.daum.net/breakingnews/society?page=3)
+2022-11-30 16:21:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161844129>
+{'Date': ['2022. 11. 30. 16:18'],
+ 'Title': '[모멘트] 서울교통공사 노조 총파업 출정식',
+ 'Writer': ['이진욱']}
+2022-11-30 16:21:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161831117> (referer: https://news.daum.net/breakingnews/society?page=4)
+2022-11-30 16:21:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161831117>
+{'Date': ['2022. 11. 30. 16:18'],
+ 'Title': '[모멘트] 오늘부터 우체국에서 4대 은행 예금 입·출금 가능',
+ 'Writer': ['이진욱']}
+2022-11-30 16:21:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161833120> (referer: https://news.daum.net/breakingnews/society?page=4)
+2022-11-30 16:21:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161833120>
+{'Date': ['2022. 11. 30. 16:18'],
+ 'Title': '인천시, 법인·개인 택시 부제 전면 해제',
+ 'Writer': ['김재경']}
+2022-11-30 16:21:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161751084> (referer: https://news.daum.net/breakingnews/society?page=4)
+2022-11-30 16:21:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161751084>
+{'Date': ['2022. 11. 30. 16:17'],
+ 'Title': "오송역→청주오송역 개명 '속도'…청주시 지명위원회 통과",
+ 'Writer': ['임선우 기자']}
+2022-11-30 16:21:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161619018> (referer: https://news.daum.net/breakingnews/society?page=6)
+2022-11-30 16:21:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161619018>
+{'Date': ['2022. 11. 30. 16:16'],
+ 'Title': '중소기업 ESG 지원 업무협약식',
+ 'Writer': ['김선율']}
+2022-11-30 16:21:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161558000> (referer: https://news.daum.net/breakingnews/society?page=6)
+2022-11-30 16:21:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161536991> (referer: https://news.daum.net/breakingnews/society?page=7)
+2022-11-30 16:21:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161558000>
+{'Date': ['2022. 11. 30. 16:15'],
+ 'Title': '마이크 던지고, 계란 투척… 화물연대 운송 방해 잇따라',
+ 'Writer': ['권경훈']}
+2022-11-30 16:21:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161536991>
+{'Date': ['2022. 11. 30. 16:15'],
+ 'Title': '서울시 유관 사업장 2차 공동파업대회',
+ 'Writer': ['신현우']}
+2022-11-30 16:21:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161509973> (referer: https://news.daum.net/breakingnews/society?page=7)
+2022-11-30 16:21:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161509973>
+{'Date': ['2022. 11. 30. 16:15'],
+ 'Title': '‘행동하는 지식인’ 표상…고 송기숙 선생 1주기 추모식',
+ 'Writer': ['정대하']}
+2022-11-30 16:21:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161348917> (referer: https://news.daum.net/breakingnews/society?page=8)
+2022-11-30 16:21:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161348917>
+{'Date': [], 'Title': "'수급 차질' 운행 중단 레미콘 차량", 'Writer': ['입력 ']}
+2022-11-30 16:21:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161354920> (referer: https://news.daum.net/breakingnews/society?page=8)
+2022-11-30 16:21:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161354920>
+{'Date': [], 'Title': "'화물 총파업 여파' 운행 멈춘 레미콘 차량", 'Writer': ['입력 ']}
+2022-11-30 16:21:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161356921> (referer: https://news.daum.net/breakingnews/society?page=8)
+2022-11-30 16:21:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161356921>
+{'Date': [], 'Title': '운행 멈춰 선 레미콘 차량', 'Writer': ['입력 ']}
+2022-11-30 16:21:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161243867> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161243867>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': "'화물연대 파업' 여파 안내문 붙은 주유소",
+ 'Writer': ['김선율']}
+2022-11-30 16:21:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161235857> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161235857>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': '무등산에 내려앉은 상고대',
+ 'Writer': ['박준배 기자']}
+2022-11-30 16:21:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161236858> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161236858>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': "'화물연대 파업' 여파 안내문 붙은 주유소",
+ 'Writer': ['김선율']}
+2022-11-30 16:21:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161236859> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161236859>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': '무등산 얼음...겨울 성큼',
+ 'Writer': ['박준배 기자']}
+2022-11-30 16:21:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161237860> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161237860>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': '곽문근 원주시의원, 매니페스토 약속 대상 수상',
+ 'Writer': ['이덕화 기자']}
+2022-11-30 16:21:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161238861> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161238861>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': "[뉴스1 PICK]연탄과 함께 전하는 지역사회 온정 '훈훈'",
+ 'Writer': ['송원영 기자']}
+2022-11-30 16:21:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161240862> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161240862>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': '주유소, 화물연대 파업 여파 우려',
+ 'Writer': ['김선율']}
+2022-11-30 16:21:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161240863> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161240863>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': '[포토] 화물연대 파업 일주일…건설현장 셧다운 지속',
+ 'Writer': ['김현민']}
+2022-11-30 16:21:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161240864> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161240864>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': '구조조정에 교통공사 노사 이견, 6년만의 파업…결국 무임승차 등 ‘적자경영’ 문제',
+ 'Writer': ['이성희 기자']}
+2022-11-30 16:21:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161246869> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161246869>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': '무등산 정상에 새하얀 상고대',
+ 'Writer': ['박준배 기자']}
+2022-11-30 16:21:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161246870> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161246870>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': '주유소, 화물연대 파업 여파 우려',
+ 'Writer': ['김선율']}
+2022-11-30 16:21:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161247871> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161250875> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161247871>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': '무등산 서석대 1100m에 핀 상고대',
+ 'Writer': ['박준배 기자']}
+2022-11-30 16:21:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161250875>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': "'화물연대 파업' 여파 안내문 붙은 주유소",
+ 'Writer': ['김선율']}
+2022-11-30 16:21:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161250876> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161250876>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': "'성추행 신고 누설' 공공기관 성고충 상담위원, 1심 무죄",
+ 'Writer': ['조민정']}
+2022-11-30 16:21:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161254879> (referer: https://news.daum.net/breakingnews/society?page=10)
+2022-11-30 16:21:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161254879>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': '주유소, 화물연대 파업 여파 우려',
+ 'Writer': ['김선율']}
+2022-11-30 16:21:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161255882> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161255882>
+{'Date': ['2022. 11. 30. 16:12'], 'Title': "'온정 손길'", 'Writer': ['송원영 기자']}
+2022-11-30 16:21:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161257885> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161257885>
+{'Date': ['2022. 11. 30. 16:12'],
+ 'Title': "'화물연대 파업' 여파 안내문 붙은 주유소",
+ 'Writer': ['김선율']}
+2022-11-30 16:21:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161301887> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161301887>
+{'Date': [], 'Title': '서울학생참여위원회 교육정책 제안에 답하는 조희연 교육감', 'Writer': ['입력 ']}
+2022-11-30 16:21:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161302889> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161307894> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161302889>
+{'Date': ['2022. 11. 30. 16:13'],
+ 'Title': '[전남24시] 김영록 전남지사 “AI 현장 원인 분석·대책 세워 차단을”',
+ 'Writer': ['정성환·배윤영호남본부 기자']}
+2022-11-30 16:21:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161307894>
+{'Date': [], 'Title': '서울학생참여위원회와 대화하는 조희연 교육감', 'Writer': ['입력 ']}
+2022-11-30 16:21:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161322903> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161313897> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161322903>
+{'Date': ['2022. 11. 30. 16:13'],
+ 'Title': '90대 성폭행 하려다 13년전 여중생 성폭행 들통난 50대 형량 절반감형…왜?',
+ 'Writer': ['구본호']}
+2022-11-30 16:21:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161313897>
+{'Date': ['2022. 11. 30. 16:13'],
+ 'Title': "소방 출동 후 신고자 2명도 사망...경찰, 1시간 전부터 '대형 사고' 언급",
+ 'Writer': ['김다현']}
+2022-11-30 16:21:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161324904> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161324904>
+{'Date': ['2022. 11. 30. 16:13'],
+ 'Title': '청주시, 동계 학생근로 참여자 106명 모집',
+ 'Writer': ['임선우 기자']}
+2022-11-30 16:21:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161331907> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161331907>
+{'Date': ['2022. 11. 30. 16:13'],
+ 'Title': '경북대학교 의과대학 100주년 준비 후원단 출범',
+ 'Writer': ['김현태']}
+2022-11-30 16:21:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161333908> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161333908>
+{'Date': [], 'Title': "'건설업계 비상' 멈춰 선 레미콘 차량", 'Writer': ['입력 ']}
+2022-11-30 16:21:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161333909> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161333909>
+{'Date': ['2022. 11. 30. 16:13'],
+ 'Title': '자산축소 선거법 위반 혐의 원강수 원주시장 기소',
+ 'Writer': ['신관호 기자']}
+2022-11-30 16:21:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161335910> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161335910>
+{'Date': ['2022. 11. 30. 16:13'], 'Title': "'올스톱' 레미콘 차량", 'Writer': ['변재훈']}
+2022-11-30 16:21:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161336911> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161336911>
+{'Date': [], 'Title': "'화물 파업 일주일' 멈춘 레미콘 차량", 'Writer': ['입력 ']}
+2022-11-30 16:21:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161342912> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161342912>
+{'Date': ['2022. 11. 30. 16:13'],
+ 'Title': '정부·화물연대 두번째 협상, 40분만에 결렬',
+ 'Writer': ['이현수']}
+2022-11-30 16:21:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161347915> (referer: https://news.daum.net/breakingnews/society?page=9)
+2022-11-30 16:21:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161347915>
+{'Date': [], 'Title': "'수급 차질' 멈춰 선 레미콘 차량", 'Writer': ['입력 ']}
+2022-11-30 16:21:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161358922> (referer: https://news.daum.net/breakingnews/society?page=8)
+2022-11-30 16:21:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161358922>
+{'Date': [], 'Title': '운행 멈춘 레미콘 차량', 'Writer': ['입력 ']}
+2022-11-30 16:21:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161402925> (referer: https://news.daum.net/breakingnews/society?page=8)
+2022-11-30 16:22:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161402925>
+{'Date': ['2022. 11. 30. 16:14'],
+ 'Title': "경기관광공사 '대한민국 커뮤니케이션 대상' 2년 연속 수상",
+ 'Writer': ['경기=박광섭 기자']}
+2022-11-30 16:22:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161402928> (referer: https://news.daum.net/breakingnews/society?page=8)
+2022-11-30 16:22:38 [scrapy.extensions.logstats] INFO: Crawled 67 pages (at 67 pages/min), scraped 56 items (at 56 items/min)
+2022-11-30 16:22:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161407930> (referer: https://news.daum.net/breakingnews/society?page=8)
+2022-11-30 16:22:38 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2022-11-30 16:22:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161402928>
+{'Date': ['2022. 11. 30. 16:14'],
+ 'Title': '경북도의회 문화환경위, 2023년도 예산안 및 기금운용계획안 심사',
+ 'Writer': ['류정임']}
+2022-11-30 16:22:38 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2022-11-30 16:22:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://v.daum.net/v/20221130161407930>
+{'Date': ['2022. 11. 30. 16:14'],
+ 'Title': '“도로 위 참사는 지금도 반복돼”…대전서 ‘총파업 지지’ 기자회견[화물연대 파업]',
+ 'Writer': ['강정의 기자']}
+2022-11-30 16:22:39 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2022-11-30 16:22:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://v.daum.net/v/20221130161410932> (referer: https://news.daum.net/breakingnews/society?page=8)
