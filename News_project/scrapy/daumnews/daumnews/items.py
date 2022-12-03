@@ -7,9 +7,20 @@ import scrapy
 
 
 class DaumnewsItem(scrapy.Item):
-    Writer = scrapy.Field()
-    Date = scrapy.Field()
+    DomainID = scrapy.Field()
+    MainCategory = scrapy.Field()
+    SubCategory = scrapy.Field()
+    WritedAt= scrapy.Field()
     Title = scrapy.Field()
+    Content = scrapy.Field()
+    URL = scrapy.Field()
+    PhotoURL= scrapy.Field()
+    Writer = scrapy.Field()
+    Press = scrapy.Field()
+    Stickers = scrapy.Field()
+    
+    
+    
 
  
     

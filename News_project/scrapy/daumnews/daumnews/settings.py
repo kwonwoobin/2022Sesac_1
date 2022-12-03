@@ -12,6 +12,7 @@ BOT_NAME = 'daumnews'
 SPIDER_MODULES = ['daumnews.spiders']
 NEWSPIDER_MODULE = 'daumnews.spiders'
 
+DUPEFILTER_CLASS ='scrapy.dupefilters.BaseDupeFilter'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'daumnews (+http://www.yourdomain.com)'
@@ -31,7 +32,7 @@ LOG_FILE = 'daum_news.log'
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 0.15
+# DOWNLOAD_DELAY = 0.15
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
