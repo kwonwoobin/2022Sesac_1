@@ -30,12 +30,11 @@ try:
 
     # cron 장외 시간 계산: pm 6시
     if t_calculate_start < t_now < t_calculate_end:
-        send_message('ML 계산 시작')
+        send_message('머신러닝 모델 계산 시작합니다')
         ML_calculation()
-        print('ML_calculation 끝')
         update_users()
         print('update_users 끝')
-        send_message('ML 계산 끝')
+        send_message('머신러닝 모델 계산 끝났습니다')
         
 
     # 사용자 요청시 9시에 전날 종가 매도(cron:9시)
@@ -56,6 +55,7 @@ try:
         print('sell_signal_list:', sell_signal_list)
         print('hold_signal_list:', hold_signal_list)
         send_message('signal 가져오기!')
+
         if len(buy_signal_list) != 0:
             target_buy_count = len(buy_signal_list) #매수할 종목 수
             buy_percent = round(1/target_buy_count, 3) # 종목당 매수 금액 비율
@@ -66,6 +66,7 @@ try:
         if stock_dict == False and buy_signal_list==[]:
             send_message('보유주식없고 매수신호 없는 경우 pass')
             pass
+        
         # 사용자 요청시 8시 40분에 전날 종가 매도
         # 8시에 DB에 업데이트된 사용자 요청 처리
         else:
