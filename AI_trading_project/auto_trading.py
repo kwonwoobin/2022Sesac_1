@@ -20,125 +20,6 @@ from keras.layers import Dense
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras.layers import LSTM
 
-# # DB 일반화
-
-# select 일반화 함수
-def select(column_qry:str, table:str, limit=None, offset=None, order_by=None, DESC=None, where_condition:[tuple]=None) -> tuple:
-    conn = pymysql.connect(host='3.35.49.211', port=3306, user='Team2', password='0120', db='Trading', charset='utf8')
-    cur = conn.cursor()
-    print('연결완료')
-    sql_qr = "SELECT {0} FROM {1}".format(column_qry, table)
-    if where_condition:
-        for i, (col, eq, val) in enumerate(where_condition):
-            is_equal = '=' if eq else '!='
-            is_multiple = ' AND' if i > 0 else ' WHERE'
-            sql_qr += f'{is_multiple} {col}{is_equal}{val}'
-            print(sql_qr)
-    if order_by:
-        sql_qr += ' ORDER BY {}'.format(order_by)
-    if DESC:
-        sql_qr += ' DESC'
-    if limit:
-        sql_qr += ' LIMIT {}'.format(limit)
-    if offset:
-        sql_qr += ' OFFSET {}'.format(offset)
-    cur = conn.cursor()
-    cur.execute(sql_qr)
-    print(cur)
-    datas = cur.fetchall()
-    print(datas)
-    return datas #tuple로 반환
-
-# insert 일반화 함수
-# values는 list 형식으로 넣었음, args로 함
-def insert_many(table:str, columns: str, values: list) -> bool:
-    print('values:',values)
-    print(len(values))
-    conn = pymysql.connect(host='3.35.49.211', port=3306, user='Team2', password='0120', db='Trading', charset='utf8')
-    sql = f"INSERT INTO {table}({columns}) " \
-                "VALUES ("  + ','.join(["%s"]*len(values[0])) + ");"
-    try:
-        cur = conn.cursor()
-        cur.executemany(sql, values)
-        conn.commit()
-        return True
-    except:
-        return False
-
-def update(table, set_column, set_value, where_column, where_value) -> bool:
-    conn = pymysql.connect(host='3.35.49.211', port=3306, user='Team2', password='0120', db='Trading', charset='utf8')
-    sql = '''UPDATE {0} SET {1}={2} WHERE {3}={4};'''.format(table, set_column, set_value, where_column, where_value)
-    try:
-        cur = conn.cursor()
-        print(sql)
-        cur.execute(sql)
-        conn.commit()
-        return True
-    except:
-        return False
-
-# 크롤링한 기업리스트
-def get_company_list():
-    conn = pymysql.connect(host='3.35.49.211', port=3306, user='Team2', password='0120', db='Trading', charset='utf8')
-    cur = conn.cursor()
-    query = "SELECT code FROM company_info "
-    cur.execute(query)
-    conn.commit()
-    company_list=[]
-    datas = cur.fetchall()
-    for data in datas:
-        company_list.append(str(data[0]).zfill(6))
-
-    return company_list
-
-# 기업 지표 계산 결과값
-def make_increase_company(company_list):
-    print('DB 연결 시작 !')
-    conn = pymysql.connect(host='3.35.49.211', port=3306, user='Team2', password='0120', db='Trading', charset='utf8')    
-    print('DB 접속 성공')
-    cur = conn.cursor()
-    
-    aroon_result={}
-    left_com_list = []
-    for com in company_list:
-        try:
-            sql = "SELECT code, high, low FROM daily_price WHERE code={0}".format(com)
-            cur.execute(sql)
-            results = cur.fetchall()
-            print('results 완료')
-            company=[res for res in results]
-            # print(len(company))
-            df = pd.DataFrame(company)
-            df.rename(columns = {0:'code', 1:'high', 2:'low'}, inplace = True)
-            print('df완료')
-            
-            if df.isnull().sum().sum() != 0:
-                continue
-            # print('aroon 시작')
-            df['aroondown'], df['aroonup'] = talib.AROON(df['high'], df['low'], timeperiod=14)
-            com=df['code'][0]
-            # up이 50보다 크고 down이 50보다 작음 : 상승세
-            # print('상승세 체크')
-            if df['aroondown'][len(df)-1] <= 30:
-                if (df['aroonup'][len(df)-1]> 50) & (df['aroondown'][len(df)-1] < 50):
-                # 상승세 중에서도 100가까이 가고 30이하에 머물면 추세 발생 확률 높음
-                    aroon_result[com] = df['aroonup'][len(df)-1]
-                    print(aroon_result)
-                    print("aroon_result{0}완료!".format(company_list.index(com)))
-        except Exception as e:
-            left_com_list.append(com)
-            print(left_com_list)
-    aroon_result = sorted(aroon_result.items(), key=lambda x: x[1], reverse=True)
-    aroon_result = aroon_result[:5]
-    aroon_result = [aroon_result[i][0] for i in range(0,len(aroon_result))]
-    print(aroon_result)
-
-
-    print('DB 연결 해제')
-    conn.close()
-
-    return aroon_result
-
 def DL_make_dataset(data, label, window_size=20):
     feature_list = []
     label_list = []
@@ -355,6 +236,8 @@ def insert_mod_sign(signal_list):
     conn.commit()
     return signal_list
 
+    
+
 # 보유 현금 조회 -> # 주식 현재가 시세 조회 -># 주식 시장가 주문(현금)-> # 주식 현재가 체결 -> #보유자산확인 
 with open('./DL_config.yaml', encoding='UTF-8') as f:
     _cfg = yaml.load(f, Loader=yaml.FullLoader)
@@ -366,27 +249,8 @@ ACNT_PRDT_CD = _cfg['ACNT_PRDT_CD']
 DISCORD_WEBHOOK_URL = _cfg['DISCORD_WEBHOOK_URL']
 URL_BASE = _cfg['URL_BASE']
 
-def send_message(msg):
-    """디스코드 메세지 전송"""
-    now = datetime.datetime.now()
-    # 날짜 str으로 변환하여 메세지 보내줄 때 확인 가능
-    message = {"content": f"[{now.strftime('%Y-%m-%d %H:%M:%S')}] {str(msg)}"} 
-    # request -> post 
-    requests.post(DISCORD_WEBHOOK_URL, data=message)
-    print(message)
 
-def get_access_token():
-    """토큰 발급"""
-    # 토큰 발급 매일 달라짐 실행하기 전에 한 번 해줘야 함. 
-    headers = {"content-type":"application/json"}
-    body = {"grant_type":"client_credentials",
-    "appkey":APP_KEY, 
-    "appsecret":APP_SECRET}
-    PATH = "oauth2/tokenP"
-    URL = f"{URL_BASE}/{PATH}"
-    res = requests.post(URL, headers=headers, data=json.dumps(body))
-    ACCESS_TOKEN = res.json()["access_token"]
-    return ACCESS_TOKEN
+
     
 def hashkey(datas):
     """암호화"""
