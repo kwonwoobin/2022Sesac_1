@@ -251,20 +251,6 @@ URL_BASE = _cfg['URL_BASE']
 
 
 
-    
-def hashkey(datas):
-    """암호화"""
-    PATH = "uapi/hashkey"
-    URL = f"{URL_BASE}/{PATH}"
-    headers = {
-    'content-Type' : 'application/json',
-    'appKey' : APP_KEY,
-    'appSecret' : APP_SECRET,
-    }
-    res = requests.post(URL, headers=headers, data=json.dumps(datas))
-    hashkey = res.json()["HASH"]
-    return hashkey
-
 
 #토큰 지정시 토큰 타입("Bearer") 지정 필요. 즉, 발급받은 접근토큰 앞에 앞에 "Bearer" 붙여서 호출
 def get_current_price(code):
