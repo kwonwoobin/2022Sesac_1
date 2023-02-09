@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 from xgboost import XGBClassifier
 
-with open('./ML_config.yaml', encoding='UTF-8') as f:
+with open('./DL_config.yaml', encoding='UTF-8') as f:
     _cfg = yaml.load(f, Loader=yaml.FullLoader)
 APP_KEY = _cfg['APP_KEY']
 APP_SECRET = _cfg['APP_SECRET']
@@ -20,17 +20,6 @@ CANO = _cfg['CANO'] # 계좌
 ACNT_PRDT_CD = _cfg['ACNT_PRDT_CD']
 DISCORD_WEBHOOK_URL = _cfg['DISCORD_WEBHOOK_URL']
 URL_BASE = _cfg['URL_BASE']
-
-
-
-def send_message(msg):
-    """디스코드 메세지 전송"""
-    now = datetime.datetime.now()
-    # 날짜 str으로 변환하여 메세지 보내줄 때 확인 가능
-    message = {"content": f"[{now.strftime('%Y-%m-%d %H:%M:%S')}] {str(msg)}"} 
-    # request -> post 
-    requests.post(DISCORD_WEBHOOK_URL, data=message)
-    print(message)
 
 
 def get_access_token():
